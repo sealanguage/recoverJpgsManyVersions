@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "buffer.h"
 
 int main(int argc, char *argv[])
 {
@@ -22,31 +23,49 @@ int main(int argc, char *argv[])
 
 
     //how do I know I opened the memroy card file?
-    int filename[];
-    int buffer[];
+    int *filename[100];
+    int buffer[512];
+    int filename_counter = 000;
+
+
+    int *getArray(int size)
+    {
+        int *a = malloc(size * sizeof *a);
+        for (int i = 0; i < size; i++)
+            a[i] = i * 2;
+        return a;
+    }
+
+
+
 
     // fread(data, size, number, inptr);
-    fread(buffer, 512, 1, raw_file);
+    fread(buffer, 512, 1, file);
         // create an array named buffer
 
         if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && (buffer[3] & 0xf0) == 0xe0);
             {
-                // close jpg old file
+                for (int i = 0; i < buffer; i++)
+                {
+                    &filename counter++;
+                    printf("Found jpg number %i.jpg \n", filename_counter);
+                }
                 // open new jpg file
                 // name it incremental file name
 
 
             }
-        else {
-            // read data to the open jpg file
+        else (xxxxxx)
+        {
+            printf("File did not read properly\n");
         }
 
-        if (){
-            // if a jpg is already open
-        // and the buffer [0] to [3] is not the true for beginning of a jpg
+        // if (){
+        //     // if a jpg is already open
+        // // and the buffer [0] to [3] is not the true for beginning of a jpg
 
-        // write the buffer data to the open jpg file
-        }
+        // // write the buffer data to the open jpg file
+        // }
 
 
         else {
@@ -79,7 +98,7 @@ int main(int argc, char *argv[])
 
     // create a struct to put 512 bytes of data into that will be searched for 0xff 0xd8 0xff beginning of jpg
 
-}
+
 
 
 
@@ -90,7 +109,7 @@ int main(int argc, char *argv[])
     fclose(*infile);
 
     // close outfile
-    fclose(*file);
+    fclose(file);
 
     // success
     return 0;
