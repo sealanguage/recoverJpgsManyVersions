@@ -13,60 +13,69 @@ int main(int argc, char *argv[])
     }
      // remember filenames
     char *infile = argv[1];
-    // open input file
+    // open input file and read data
     FILE *file = fopen(infile, "r");
     if (file == NULL)
     {
+        // error message in case file does not open
         fprintf(stderr, "Could not open %s.\n", infile);
         return 2;
     }
 
-
+    int buffer[512];
+    fread(buffer, 512, 1, file);
+    if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && (buffer[3] & 0xf0) == 0xe0);
+    {
+        for (int i = 0; i < buffer; i++)
+        {
+            fprintf(file, "%s.jpg", buffer[0].filename);
+        }
+    }
 
     //how do I know I opened the memroy card file?
 
 
     // allocate space for the buffer
-    int data = xxxxxxx;
-    buffer data
+    // int data = xxxxxxx;
+    // buffer data
 
 
-    int *filename[100];
-    int buffer[512];
-    int filename_counter = 000;
+    // int *filename[100];
+    // int buffer[512];
+    // int filename_counter = 000;
 
 
-    int *getArray(int size)
-    {
-        int *a = malloc(size * sizeof *a);
-        for (int i = 0; i < size; i++)
-            a[i] = i * 2;
-        return a;
-    }
+    // int *getArray(int size)
+    // {
+    //     int *a = malloc(size * sizeof *a);
+    //     for (int i = 0; i < size; i++)
+    //         a[i] = i * 2;
+    //     return a;
+    // }
 
 
 
 
-    // fread(data, size, number, inptr);
-    fread(buffer, 512, 1, file);
-        // create an array named buffer
+    // // fread(data, size, number, inptr);
+    // fread(buffer, 512, 1, file);
+    //     // create an array named buffer
 
-        if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && (buffer[3] & 0xf0) == 0xe0);
-            {
-                for (int i = 0; i < buffer; i++)
-                {
-                    &filename counter++;
-                    printf("Found jpg number %i.jpg \n", filename_counter);
-                }
-                // open new jpg file
-                // name it incremental file name
+    //     if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && (buffer[3] & 0xf0) == 0xe0);
+    //         {
+    //             for (int i = 0; i < buffer; i++)
+    //             {
+    //                 &filename counter++;
+    //                 printf("Found jpg number %i.jpg \n", filename_counter);
+    //             }
+    //             // open new jpg file
+    //             // name it incremental file name
 
 
-            }
-        else (xxxxxx)
-        {
-            printf("File did not read properly\n");
-        }
+    //         }
+    //     else (xxxxxx)
+    //     {
+    //         printf("File did not read properly\n");
+    //     }
 
         // if (){
         //     // if a jpg is already open
@@ -76,13 +85,13 @@ int main(int argc, char *argv[])
         // }
 
 
-        else {
-            // if jpg isn't open and I don't have a file open
-            // close the ope file and open a new one
-            // increment te file name 00x.jpg
-            // write the buffer data to the new file
-            // open the next 512 vytes ti the buffer
-        }
+        // else {
+        //     // if jpg isn't open and I don't have a file open
+        //     // close the ope file and open a new one
+        //     // increment te file name 00x.jpg
+        //     // write the buffer data to the new file
+        //     // open the next 512 vytes ti the buffer
+        // }
 
 
 
