@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "buffer.h"
 
 int main(int argc, char *argv[])
@@ -23,6 +24,13 @@ int main(int argc, char *argv[])
 
 
     //how do I know I opened the memroy card file?
+
+
+    // allocate space for the buffer
+    int data = xxxxxxx;
+    buffer data
+
+
     int *filename[100];
     int buffer[512];
     int filename_counter = 000;

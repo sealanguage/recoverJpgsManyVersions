@@ -17,17 +17,14 @@ int main (void)
         students[i].dorm = get_string("dorm: ");
     }
     // print students' names and dorms
-    FILE *file = fopen("students.csv", "w");
+    FILE *file = fopen("students1.csv", "w");
     if (file)
     {
         for (int i = 0; i < enrollment; i++)
         {
-            fprintf(file, "%s is in %s.\n", students[i].name, students[i].dorm);
+            fprintf(file, "%s,%s\n", students[i].name, students[i].dorm);
         }
         fclose(file);
     }
-
-
-
 
 }
