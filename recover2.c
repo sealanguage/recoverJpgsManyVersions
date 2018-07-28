@@ -22,13 +22,15 @@ int main(int argc, char *argv[])
         return 2;
     }
 
-    int buffer[512];
-    fread(buffer, 512, 1, file);
-    if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && (buffer[3] & 0xf0) == 0xe0);
+    // int buffer[sizeof(infile)];
+    fread(*buffer, sizeof(infile), 1, file);
+    if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && (buffer[3] & 0xf0) == 0xe0)
     {
-        for (int i = 0; i < buffer; i++)
+        for (int i = 0; i < *buffer; i++)
         {
-            fprintf(file, "%s.jpg", buffer[0].filename);
+            // fwrite(buffer, sizeof(infile), 1, )
+            sprintf(imagelist.csv, %03i.jpg,)
+            // fprintf(file, "%03i.jpg", &buffer[i].filename);
         }
     }
 
@@ -39,9 +41,6 @@ int main(int argc, char *argv[])
     // int data = xxxxxxx;
     // buffer data
 
-
-    // int *filename[100];
-    // int buffer[512];
     // int filename_counter = 000;
 
 
@@ -123,7 +122,7 @@ int main(int argc, char *argv[])
 
 
     // close infile
-    fclose(*infile);
+    fclose(infile);
 
     // close outfile
     fclose(file);
