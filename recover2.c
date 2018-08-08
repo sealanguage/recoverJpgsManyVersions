@@ -13,6 +13,7 @@ int main(int argc, char *argv[])
     }
      // remember filenames
     char *infile = argv[1];
+    printf("This is the file: %s\n", argv[1]);
     // open input file and read data
     FILE *file = fopen(infile, "r");
     if (file == NULL)
@@ -22,13 +23,18 @@ int main(int argc, char *argv[])
         return 2;
     }
 
+    int count = 0;
+
+    int buffer[512];
+    char buffer[MAX_SIZE];
+    // strcpy(buffer,"This is the test file");
     // int buffer[sizeof(infile)];
-    fread(*buffer, sizeof(infile), 1, file);
+    fread(buffer, sizeof(infile), 1, file);
     if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && (buffer[3] & 0xf0) == 0xe0)
     {
         for (int i = 0; i < *buffer; i++)
         {
-            // fwrite(buffer, sizeof(infile), 1, )
+            fwrite(buffer, sizeof(infile), 1, *file)
             sprintf(imagelist.csv, %03i.jpg,)
             // fprintf(file, "%03i.jpg", &buffer[i].filename);
         }

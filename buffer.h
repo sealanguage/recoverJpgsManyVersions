@@ -5,4 +5,4 @@ typedef struct
     int *filename;
     char *jpg;
 }
-buffer;
+BUFFER;
